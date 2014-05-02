@@ -20,6 +20,9 @@ class FetchImages
 
 end
 
-#p FetchImages.count_children(@json_data)
-#p FetchImages.first_child(@json_data)
-#p FetchImages.all_images(@json_data)
+
+
+# p @json_data
+# p FetchImages.count_children(@json_data)
+# p FetchImages.first_child(@json_data)
+# p FetchImages.all_images(@json_data)
