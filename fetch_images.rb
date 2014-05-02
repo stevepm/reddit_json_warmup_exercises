@@ -18,11 +18,10 @@ class FetchImages
   def self.all_images(json_data)
   end
 
+  def self.only_imgur_images(json_data)
+  end
 end
 
-
-
-# p @json_data
-# p FetchImages.count_children(@json_data)
-# p FetchImages.first_child(@json_data)
-# p FetchImages.all_images(@json_data)
+#p FetchImages.count_children(@json_data)
+#p FetchImages.first_child(@json_data)
+#p FetchImages.all_images(@json_data)
