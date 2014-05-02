@@ -1,20 +1,21 @@
 require 'spec_helper'
 require 'json'
-require_relative '../fetch_images'
+require_relative '../image_fetcher'
 
-describe FetchImages do
+describe ImageFetcher do
 
   before {
     json = File.read('data.json')
-    @json_data = JSON.parse(json)
+    json_data = JSON.parse(json)
+    @image_fetcher = ImageFetcher.new(json_data)
   }
 
   it 'should return 25 children to parse through' do
-    expect(FetchImages.count_children(@json_data)).to eq 25
+    expect(@image_fetcher.count_children).to eq 25
   end
 
   it 'should return data for the first child' do
-    expect(FetchImages.first_child(@json_data)).to eq(
+    expect(@image_fetcher.first_child).to eq(
                                                        {
                                                          "domain"=>"i.imgur.com",
                                                          "banned_by"=>nil,
@@ -61,7 +62,7 @@ describe FetchImages do
   end
 
   it 'should return an array with all images' do
-    expect(FetchImages.all_images(@json_data)).to match_array ([
+    expect(@image_fetcher.all_images).to match_array ([
                                                       "http://i.imgur.com/XBGD1NL.jpg",
                                                       "http://i.imgur.com/pavjxX2.jpg",
                                                       "http://i.imgur.com/ism63qG.jpg",
@@ -92,7 +93,7 @@ describe FetchImages do
   end
 
   it 'should return an array of all of the imgur images within the JSON data' do
-    expect(FetchImages.only_imgur_images(@json_data)).to eq ([
+    expect(@image_fetcher.only_imgur_images).to eq ([
                                                                  "http://i.imgur.com/XBGD1NL.jpg",
                                                                  "http://i.imgur.com/pavjxX2.jpg",
                                                                  "http://i.imgur.com/ism63qG.jpg",
