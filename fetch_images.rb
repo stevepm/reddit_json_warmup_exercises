@@ -18,6 +18,7 @@ class FetchImages
   def self.all_images(json_data)
   end
 
+  # fetch only the images that begin with `http://i.imgur.com`
   def self.only_imgur_images(json_data)
   end
 end
