@@ -1,7 +1,7 @@
 reddit_json_warmup_exercises
 ============================
 
-## You assignment
+## Your assignment
 1. Clone this repository
 2. Bundle
 3. Run rspec
