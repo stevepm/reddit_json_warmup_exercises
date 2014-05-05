@@ -15,23 +15,15 @@ class ImageFetcher
   end
 
   def all_images
-    images = []
-    @data["data"]["children"].each do |data|
-      images << data["data"]["url"]
+    @data["data"]["children"].map do |data|
+      data["data"]["url"]
     end
-    images
   end
 
-
-# fetch only the images that begin with `http://i.imgur.com`
   def only_imgur_images
-    imgur_images = []
-    all_images.each do |image|
-      if image =~ /^(http:\/\/i\.imgur\.com)/
-        imgur_images << image
-      end
+    all_images.select do |image|
+      image if image =~ /^(http:\/\/i\.imgur\.com)/
     end
-    imgur_images
   end
 
 end
