@@ -22,7 +22,7 @@ class ImageFetcher
 
   def only_imgur_images
     all_images.select do |image|
-      image if image =~ /^(http:\/\/i\.imgur\.com)/
+      image.include?("http://i.imgur.com")
     end
   end
 
